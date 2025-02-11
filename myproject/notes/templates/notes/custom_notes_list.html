@@ -1,0 +1,20 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <title>My Notes</title>
+</head>
+<body>
+    <h1>This is Custom Notes Template:</h1>
+    
+    <ul>
+        {% for note in notes %}
+            <li class="note-li">{{ note.title }}</li>
+        {% endfor %} 
+    </ul>
+</body>
+</html>
