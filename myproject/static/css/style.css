@@ -1,3 +1,7 @@
-.note-li {
+/* .note-li {
     color: red;
+} */
+
+.errorlist {
+    display: none;
 }

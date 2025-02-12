@@ -5,6 +5,11 @@
     <body>
         <h1>This is a welcome page from Home App</h1>
         <h2>Today: {{ today }}</h2>
+
+        {% include "home/advantages.html" %}
+
         <a href="{% url 'notes.list' %}" class="btn btn-primary">Checkout the notes!</a>
+
+        {% include "home/copyright.html" %}
     </body>
 </html>
