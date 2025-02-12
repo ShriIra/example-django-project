@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Django Application</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h1>Welcome to my Django Application</h1>
     <p>
         {{ today }}
     </p>
-</body>
-</html>
+    
+    {% include 'home/advantages.html' %}
+    
+    <a href="{% url 'notes.list' %}" class="btn btn-primary">Checkout some notes!</a>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView, CreateView
+from .forms import NotesForm
 from .models import Notes
 
 # def list(request):
@@ -29,3 +29,10 @@ class PopularNotesView(ListView):
     context_object_name = "notes"
     template_name = "notes/notes_list.html"
     queryset = Notes.objects.filter(likes__gte=1)
+
+class NotesCreateView(CreateView):
+    # model = Notes
+    # fields = ['title', 'text']
+    success_url = "/notes/list"
+    template_name = "notes/notes_form.html"
+    form_class = NotesForm
