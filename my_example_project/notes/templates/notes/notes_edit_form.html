@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'notes.update' pk=note.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-primary my-5">Submit</button>
+    {% if form.errors %}
+        {{ form.errors.title.as_text }}
+    {% endif %}
+</form>
+
+{% endblock %}

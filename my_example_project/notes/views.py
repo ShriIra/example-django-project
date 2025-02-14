@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import NotesForm
 from .models import Notes
 
@@ -36,3 +36,17 @@ class NotesCreateView(CreateView):
     success_url = "/notes/list"
     template_name = "notes/notes_form.html"
     form_class = NotesForm
+
+class NotesUpdateView(UpdateView):
+    model = Notes
+    # fields = ['title', 'text']
+    success_url = '/notes/list'
+    template_name = "notes/notes_edit_form.html"
+    form_class = NotesForm
+    context_object_name = "note"
+
+class NotesDeleteView(DeleteView):
+    model = Notes
+    success_url = '/notes/list'
+    template_name = "notes/notes_confirm_delete.html"
+    context_object_name = "note"
